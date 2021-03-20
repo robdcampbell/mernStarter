@@ -7,7 +7,7 @@ const app = express();
 // replaced bodyParser
 app.use(express.json());
 
-// refactored DB connection setup/teardown
+// refactored DB connection setup/teardown - wrapper code for DB Queries
 const withDB = async(operations, res)=>{
  try {
     // set up connection to db and client to make queries.
@@ -19,7 +19,6 @@ const withDB = async(operations, res)=>{
    
     await operations(db);
 
-    //res.status(200).json(articleInfo);
     // once data is sent, close the connection to the database.
     client.close();
   } catch (error) {
