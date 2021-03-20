@@ -1,0 +1,13 @@
+## GENERAL NOTES:
+
+run backend (with nodemon)
+- npx nodemon --exec npx babel-node src/server.js
+- npx babel-node src/server.js
+
+
+============================================================
+============================================================
+
+DEPRECATED :Body-Parser: - Allows our server to extract data sent via JSON via a HTTP request
+  - installed in backend dir. 
+Now USE: app.use(express.json()) -> in server.js
