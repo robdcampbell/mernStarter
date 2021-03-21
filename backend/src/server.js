@@ -1,8 +1,12 @@
 import express from "express";
 import { MongoClient } from "mongodb";
+import path from 'path';
 const PORT = 8000;
 
 const app = express();
+
+// server up static assests
+app.use(express.static(path.join(__dirname, '/build')))
 
 // replaced bodyParser
 app.use(express.json());
@@ -91,5 +95,9 @@ app.post("/api/articles/:name/add-comment", (req, res) => {
   },res)
 
 });
+
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname + '/build/index.html'))
+})
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
