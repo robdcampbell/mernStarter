@@ -1,6 +1,5 @@
 import React from "react";
 import articleContent from "./article-content";
-import { Link } from "react-router-dom";
 import ArticlesList from "../Components/ArticlesList";
 
 const ArticlesListPage = () => {
